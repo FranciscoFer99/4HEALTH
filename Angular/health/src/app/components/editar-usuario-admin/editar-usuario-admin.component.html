@@ -1,0 +1,119 @@
+<app-load-page *ngIf="cargando == false"></app-load-page>
+<div class="alert alert-info alert-dismissible fade show" role="alert" *ngIf="editado == 'si'">
+  <strong>Usuario editado correctamente!</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="editado == 'no'">
+  <strong>No se ha podido editar el usuario!</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<div class="centrarCuadro">
+  <div class="cuadro">
+    <form method="post" [formGroup]="loginForm" *ngIf="usuarioBuscado != null">
+      <div class="row">
+        <h1 class="text-center">Editar Usuario</h1>
+      </div>
+
+      <!-- Nombre, Apellido -->
+      <div class="row">
+        <div class="col-6 form-group email">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" formControlName="nombre"
+            class="form-control redondearBordes shadow">
+        </div>
+        <div class="col-6 form-group email">
+          <label for="nombreUsuario">Nombre Usuario</label>
+          <input type="text" id="nombreUsuario" name="nombreUsuario"
+            formControlName="nombreUsuario" class="form-control redondearBordes shadow">
+        </div>
+
+
+      </div>
+
+      <!-- NombreUsuario, Correo Electrónico -->
+      <div class="row my-2">
+        <div class="col-6 form-group email">
+          <label for="email">Correo Electronico</label>
+          <input type="text" id="email" name="email" formControlName="email"
+            class="form-control redondearBordes shadow">
+        </div>
+        <div class="col-6 form-group email">
+          <label for="telefono">Teléfono</label>
+          <input type="text" id="telefono" name="telefono" formControlName="telefono"
+            class="form-control redondearBordes shadow">
+        </div>
+      </div>
+
+
+
+
+      <!-- Dirección, Código Postal -->
+      <div class="row ">
+        <div class="col-6 form-group email">
+          <label for="direccion">Dirección</label>
+          <input type="text" id="direccion" name="direccion" formControlName="direccion"
+            class="form-control redondearBordes shadow">
+        </div>
+        <div class="col-6 form-group email">
+          <label for="cp">CP</label>
+          <input type="text" id="cp" name="cp" formControlName="cp"
+            class="form-control redondearBordes shadow">
+        </div>
+      </div>
+
+      <!-- Localidad, Provincia -->
+      <div class="row my-2">
+        <div class="col-6 form-group email">
+          <label for="localidad">Localidad</label>
+          <input type="text" id="localidad" name="localidad" formControlName="localidad"
+            class="form-control redondearBordes shadow">
+        </div>
+        <div class="col-6 form-group email">
+          <label for="provincia">Provincia</label>
+          <input type="text" id="provincia" name="provincia" formControlName="provincia"
+            class="form-control redondearBordes shadow">
+        </div>
+      </div>
+
+      <!-- Alturacm, Sexo -->
+      <div class="row ">
+        <div class="col-6 form-group email">
+          <label for="altura">Altura (cm)</label>
+          <input type="text" id="altura" name="altura" formControlName="altura"
+            class="form-control redondearBordes shadow">
+        </div>
+        <div class="col-6 form-group email">
+          <label for="provincia">Tipo de usuario</label>
+          <select class="form-select redondearBordes shadow" formControlName="tipo" aria-label="Default select example">
+            <option value="1">Común</option>
+            <option value="2">Administrador</option>
+            <option value="3">Entrenador</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Botones -->
+      <div class="row ">
+        <div class="col-6">
+          <div class="">
+            <label for="image" class=""><img class="foto mt-2" id="fotito" src="data:image/jpg;base64,{{foto}}"></label>
+          </div>
+          <input type="file" id="image" class="form-control mt-2" formControlName="img" name="comment" style="display: none;"
+            (change)="guardarImagen()" />
+        </div>
+        <div class="col-6 botones mt-2" id="bot">
+          <input type="button" name="crearCuenta" id="crearCuenta" value="Guardar" [disabled]="loginForm.invalid" (click)="modificarUsuario()"
+            class="btn btn-primary boton shadow">
+        </div>
+      </div>
+      <div class="row">
+<br>
+<br>
+<br>
+<br>
+<br>
+      </div>
+
+    </form>
+  </div>
+</div>

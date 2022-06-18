@@ -1,0 +1,39 @@
+<app-load-page *ngIf="cargando == false"></app-load-page>
+
+<div style="background-color: #121414;" class="fondo">
+  <div class="alert alert-danger alert-dismissible fade show al" role="alert" *ngIf="ini == 'no'">
+    <strong>Usuario y/o Contraseña erroneos</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  <div class="centrarCuadro">
+    <div class="cuadro shadow-lg"></div>
+      <form action=""  class="prueba ">
+        <div class="opacidad">
+          <div class="row">
+            <h1 class="text-center">INICIAR SESIÓN</h1>
+          </div>
+          <div class="row form-group email ">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" placeholder="xxxxx@xxx.xxx" [formControl]="email"
+              class="form-control redondearBordes shadow">
+          </div>
+          <div class="row form-group pass">
+            <label for="contrasenna">Password</label>
+            <input type="password" id="contrasenna" name="contrasenna" placeholder="********"
+              [formControl]="contrasenna" class="form-control redondearBordes shadow">
+          </div>
+          <div class="row botones">
+            <div class="col-6"><input type="button" name="iniciarSesion" id="iniciarSesion" value="Iniciar Sesión"
+                class="btn btn-primary boton shadow-lg encima" (click)="iniciarSesion()"></div>
+            <!-- <div class="col-6"> <input type="submit" name="iniciarGoogle" id="iniciarGoogle" value="Iniciar Google"
+                class="btn btn-primary boton shadow-lg"></div> -->
+          </div>
+          <div class="text-center enlaces">
+            <div class="row"><a [routerLink]="['/registroUsuario']" class="text-decoration registro encima2">¿No tienes cuenta? Regístrate</a></div>
+            <!-- <div class="row"><a href="#" class="text-decoration">¿Has olvidado tu contraseña?</a></div> -->
+          </div>
+        </div>
+      </form>
+
+  </div>
+</div>

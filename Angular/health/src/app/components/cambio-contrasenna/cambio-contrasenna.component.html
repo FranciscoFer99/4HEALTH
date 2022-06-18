@@ -1,0 +1,44 @@
+<app-load-page *ngIf="cargando == false"></app-load-page>
+<div class="alert alert-info alert-dismissible fade show" role="alert" *ngIf="mod == 'si'">
+  <strong>Contraseña modificada correctamente!</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="mod == 'no'">
+  <strong>La contraseña actual no es correcta!</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="mod == 'noCoinciden'">
+  <strong>Las nuevas contraseñas no coinciden!</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<div class="centrarCuadro">
+  <div class="cuadro shadow-lg">
+    <form action="">
+      <div class="row">
+        <h1 class="text-center">CAMBIAR CONTRASEÑA</h1>
+      </div>
+      <div class="row form-group email">
+        <label for="contrasenna">Contraseña actual</label>
+        <input type="password" id="contrasenna" name="contrasenna" [formControl]="contrasenna" placeholder="********"
+          class="form-control redondearBordes shadow">
+      </div>
+      <div class="row form-group pass">
+        <label for="nuevaContrasenna">Nueva Contraseña</label>
+        <input type="password" id="nuevaContrasenna" name="nuevaContrasenna" [formControl]="nuevaContrasenna" placeholder="********"
+          class="form-control redondearBordes shadow">
+      </div>
+      <div class="row form-group pass">
+        <label for="repNuevaContrasenna">Nueva Contraseña</label>
+        <input type="password" id="repNuevaContrasenna" name="repNuevaContrasenna" [formControl]="repNuevaContrasenna" placeholder="********"
+          class="form-control redondearBordes shadow">
+      </div>
+      <div class="row d-flex justify-content-end">
+        <div class="col-6 d-flex justify-content-end">
+          <input type="button" name="cambiar" id="cambiar" value="Guardar" (click)="cambiarContrasenna()"
+            class="btn btn-primary boton shadow-lg sennalado">
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

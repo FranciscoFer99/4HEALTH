@@ -1,0 +1,72 @@
+<app-load-page *ngIf="cargando == false"></app-load-page>
+<div class="alert alert-info alert-dismissible fade show" role="alert" *ngIf="mod == 'si'">
+  <strong>Clase modificada correctamente!</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="mod == 'no'">
+  <strong>No se ha podido modificar la clase!</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<div class="centrarCuadro" >
+  <div class="cuadro">
+    <form  method="post" [formGroup]="loginForm" *ngIf="loginForm" class="formulario">
+      <div class="row margen">
+        <h1 class="text-center">Modificar Clase</h1>
+      </div>
+
+      <div class="row d-flex justify-content-center mb-3 fila1">
+        <div class="col-3 form-group email"><div class="">
+          <label for="image" class=""><img class="foto mt-2 rounded-circle" id="fotito" src="data:image/jpg;base64,{{foto}}"></label>
+        </div>
+        <input type="file" id="image" class="form-control mt-2" formControlName="img" name="comment" style="visibility: hidden;"
+          (change)="guardarImagen()" /></div>
+        <div class="col-9 form-group email">
+          <label for="nombre">Nombre </label>
+          <input type="text" id="nombre" name="nombre" value="" formControlName="nombre" class="form-control redondearBordes shadow">
+        </div>
+      </div>
+
+      <!-- Nombre, Apellido -->
+      <div class="row">
+        <div class="col-6 form-group email">
+          <label for="horario">Horario</label>
+          <select class="form-select redondearBordes shadow" formControlName="horario" aria-label="Default select example">
+            <option *ngFor="let h of horarios" value="{{h}}">{{h}}</option>
+            <!-- <option value="11:00-12:00">11:00-12:00</option>
+            <option value="12:00-13:00">12:00-13:00</option> -->
+          </select>
+        </div>
+        <div class="col-6 form-group email" >
+          <label for="telefono">Monitor</label>
+          <select class="form-select redondearBordes shadow" formControlName="monitor" aria-label="Default select example">
+            <ng-container *ngFor="let usu of litstaUsuarios">
+            <option *ngIf="usu.idTipousuario.id == 3" value="{{usu.id}}">{{usu.nombreUsu}}</option>
+          </ng-container>
+          </select>
+        </div>
+      </div>
+
+      <!-- Telefono, Direccion -->
+      <div class="row my-3">
+        <div class="col-12 form-group email">
+          <label for="direccion">Descripción</label>
+          <textarea name="descrcipcion" id="descrcipcion" cols="30" rows="2" formControlName="descripcion" class="form-control redondearBordes shadow"></textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6 botones">
+          <input type="submit" name="annadir" id="annadir" value="Guardar" class="btn btn-primary boton shadow encima" (click)="modificarClase()">
+        </div>
+        <div class="col-6 botones">
+          <input type="submit" name="cancelar" id="cancelar" value="Cancelar" [routerLink]="['/gestionClases']"
+            class="btn btn-primary boton shadow encima">
+        </div>
+      </div>
+
+
+
+
+    </form>
+  </div>
+</div>

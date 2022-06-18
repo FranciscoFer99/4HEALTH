@@ -1,0 +1,62 @@
+<app-load-page *ngIf="cargando == false"></app-load-page>
+
+<div class="alert alert-info alert-dismissible fade show" role="alert" *ngIf="elim == 'no'">
+  <strong>Peso eliminado correctamente</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="elim == 'noElim'">
+  <strong>No s ha podido eliminar el peso</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<div class="centrarCuadro">
+  <div class="cuadro">
+    <div class="d-flex row text-center">
+      <table class="table talbe-stripped tabla" *ngIf="clases.length != 0">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Peso</th>
+            <th scope="col">Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of clases | paginate: { itemsPerPage: 6, currentPage: page }" class="sennalado">
+            <td>{{c.datosUsuario.nombreUsu}}</td>
+            <!-- <td> <img src="data:image/png;base64,{{usuario.foto}}" class="foto"></td> -->
+            <td>{{c.fecha | date:"YYYY/MM/dd"}}</td>
+            <td>{{c.valor}}Kg</td>
+            <td><i class="bi bi-trash-fill iconitoEliminar" (click)="eliminarClase(c.idPeso)"></i></td>
+          </tr>
+        </tbody>
+      </table>
+      <img src="/assets/images/giphy.gif" class="imagen" *ngIf="clases.length == 0">
+          <h1 *ngIf="clases.length == 0">No tienes pesos registrados</h1>
+      <pagination-controls *ngIf="clases.length != 0" (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente" >
+      </pagination-controls>
+
+
+      <div class="row ">
+
+        <!-- <div class=" mx-2 col-4 "> -->
+        <form method="post" [formGroup]="loginForm">
+          <div class="form-group email row justify-content-end">
+
+            <div class="  col-2 ">
+              <!-- <label for="nombre">Peso</label> -->
+              <input type="text" id="nombre" name="nombre" formControlName="nombre"
+                class="form-control redondearBordes shadow">
+            </div>
+          </div>
+          <div class="row mx-2 justify-content-end  mt-2 ">
+            <div class="col-2"><input type="submit" name="cambiarContrasenna" id="cambiarContrasenna"
+                value="Añadir Peso" (click)="mostrarPesoUsuario()" class="btn btn-primary boton shadow"></div>
+
+          </div>
+        </form>
+        <!-- </div> -->
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,163 @@
+<app-load-page *ngIf="cargando == false"></app-load-page>
+<div class="alert alert-info alert-dismissible fade show" role="alert" *ngIf="registrado == 'si'">
+  <strong>Usuario registrado correctamente!</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="registrado == 'no'">
+  <strong>No se ha podido registrar el usuario!</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="pass == 'no'">
+  <strong>Las contraseñas no coinciden</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="noFor == 'no'">
+  <strong>El formulario no es valido</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<div class="centrarCuadro">
+  <div class="cuadro">
+    <form method="post" [formGroup]="loginForm">
+      <div class="row">
+        <h1 class="text-center">Registrar Usuario</h1>
+      </div>
+
+      <!-- Nombre, Apellido -->
+      <div class="row">
+        <div class="col-6 form-group email">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" formControlName="nombre"
+            class="form-control redondearBordes shadow">
+            <ng-container class="rojo" *ngIf="loginForm.get('nombre').hasError('required') && (loginForm.get('nombre').touched || loginForm.get('nombre').dirty)"> <p class="rojo" >Campo obligatorio</p> </ng-container>
+        </div>
+        <div class="col-6 form-group email">
+          <label for="apellido">Apellido</label>
+          <input type="text" id="apellido" name="apellido" formControlName="apellido"
+            class="form-control redondearBordes shadow">
+            <ng-container class="rojo" *ngIf="loginForm.get('apellido').hasError('required') && (loginForm.get('apellido').touched || loginForm.get('apellido').dirty)"> <p class="rojo" >Campo obligatorio</p> </ng-container>
+        </div>
+      </div>
+
+      <!-- NombreUsuario, Correo Electrónico -->
+      <div class="row my-2">
+        <div class="col-6 form-group email">
+          <label for="nombreUsuario">Nombre Usuario</label>
+          <input type="text" id="nombreUsuario" name="nombreUsuario"
+            formControlName="nombreUsuario" class="form-control redondearBordes shadow">
+            <ng-container class="rojo" *ngIf="loginForm.get('nombreUsuario').hasError('required') && (loginForm.get('nombreUsuario').touched || loginForm.get('nombreUsuario').dirty)"> <p class="rojo" >Campo obligatorio</p> </ng-container>
+        </div>
+        <div class="col-6 form-group email">
+          <label for="email">Correo Electronico</label>
+          <input type="text" id="email" name="email" formControlName="email"
+            class="form-control redondearBordes shadow">
+            <ng-container class="rojo" *ngIf="loginForm.get('email').hasError('required') && (loginForm.get('email').touched || loginForm.get('email').dirty)"> <p class="rojo" >Campo obligatorio</p> </ng-container>
+        </div>
+      </div>
+
+      <!-- Contraseña, Repetir Contraseña -->
+      <div class="row ">
+        <div class="col-6 form-group email">
+          <label for="contrasenna">Contraseña</label>
+          <input type="password" id="contrasenna" name="contrasenna"
+            formControlName="contrasenna" class="form-control redondearBordes shadow">
+            <ng-container class="rojo" *ngIf="loginForm.get('contrasenna').hasError('required') && (loginForm.get('contrasenna').touched || loginForm.get('contrasenna').dirty)"> <p class="rojo" >Campo obligatorio</p> </ng-container>
+        </div>
+        <div class="col-6 form-group email">
+          <label for="repcontrasenna">Repetir contraseña</label>
+          <input type="password" id="repcontrasenna" name="repcontrasenna"
+            formControlName="repcontrasenna" class="form-control redondearBordes shadow">
+            <ng-container class="rojo" *ngIf="loginForm.get('repcontrasenna').hasError('required') && (loginForm.get('repcontrasenna').touched || loginForm.get('repcontrasenna').dirty)"> <p class="rojo" >Campo obligatorio</p> </ng-container>
+        </div>
+      </div>
+
+      <!-- Fecha Nacimiento, Teléfono -->
+      <div class="row my-2">
+        <div class="col-6 form-group email">
+          <label for="fechaNac">Fecha Nacimiento</label>
+          <input type="date" id="fechaNac" name="fechaNac" formControlName="fecha_nac"
+            class="form-control redondearBordes shadow">
+            <ng-container class="rojo" *ngIf="loginForm.get('fecha_nac').hasError('required') && (loginForm.get('fecha_nac').touched || loginForm.get('fecha_nac').dirty)"> <p class="rojo" >Campo obligatorio</p> </ng-container>
+        </div>
+        <div class="col-6 form-group email">
+          <label for="telefono">Teléfono</label>
+          <input type="text" id="telefono" name="telefono" formControlName="telefono"
+            class="form-control redondearBordes shadow">
+            <ng-container class="rojo" *ngIf="loginForm.get('telefono').hasError('required') && (loginForm.get('telefono').touched || loginForm.get('telefono').dirty)"> <p class="rojo" >Campo obligatorio</p> </ng-container>
+        </div>
+      </div>
+
+      <!-- Dirección, Código Postal -->
+      <div class="row ">
+        <div class="col-6 form-group email">
+          <label for="direccion">Dirección</label>
+          <input type="text" id="direccion" name="direccion" formControlName="direccion"
+            class="form-control redondearBordes shadow">
+            <ng-container class="rojo" *ngIf="loginForm.get('direccion').hasError('required') && (loginForm.get('direccion').touched || loginForm.get('direccion').dirty)"> <p class="rojo" >Campo obligatorio</p> </ng-container>
+        </div>
+        <div class="col-6 form-group email">
+          <label for="cp">CP</label>
+          <input type="text" id="cp" name="cp" formControlName="cp"
+            class="form-control redondearBordes shadow">
+            <ng-container class="rojo" *ngIf="loginForm.get('cp').hasError('required') && (loginForm.get('cp').touched || loginForm.get('cp').dirty)"> <p class="rojo" >Campo obligatorio</p> </ng-container>
+        </div>
+      </div>
+
+      <!-- Localidad, Provincia -->
+      <div class="row my-2">
+        <div class="col-6 form-group email">
+          <label for="localidad">Localidad</label>
+          <input type="text" id="localidad" name="localidad" formControlName="localidad"
+            class="form-control redondearBordes shadow">
+            <ng-container class="rojo" *ngIf="loginForm.get('localidad').hasError('required') && (loginForm.get('localidad').touched || loginForm.get('localidad').dirty)"> <p class="rojo" >Campo obligatorio</p> </ng-container>
+        </div>
+        <div class="col-6 form-group email">
+          <label for="provincia">Provincia</label>
+          <input type="text" id="provincia" name="provincia" formControlName="provincia"
+            class="form-control redondearBordes shadow">
+            <ng-container class="rojo" *ngIf="loginForm.get('provincia').hasError('required') && (loginForm.get('provincia').touched || loginForm.get('provincia').dirty)"> <p class="rojo" >Campo obligatorio</p> </ng-container>
+        </div>
+      </div>
+
+      <!-- Alturacm, Sexo -->
+      <div class="row ">
+        <div class="col-6 form-group email">
+          <label for="altura">Altura (cm)</label>
+          <input type="text" id="altura" name="altura" formControlName="altura"
+            class="form-control redondearBordes shadow">
+            <ng-container class="rojo" *ngIf="loginForm.get('altura').hasError('required') && (loginForm.get('altura').touched || loginForm.get('altura').dirty)"> <p class="rojo" >Campo obligatorio</p> </ng-container>
+        </div>
+        <div class="col-6 form-group email">
+          <label for="provincia">Sexo</label>
+          <select class="form-select redondearBordes shadow" formControlName="sexo" aria-label="Default select example">
+            <option value="Hombre">Hombre</option>
+            <option value="Mujer">Mujer</option>
+            <option value="Otro">Otro</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Botones -->
+      <div class="row ">
+        <div class="col-6">
+          <div class="">
+            <label for="image" class=""><img class="foto mt-2" id="fotito" src="data:image/jpg;base64,{{foto}}"></label>
+          </div>
+          <input type="file" id="image" class="form-control mt-2" formControlName="img" name="comment"
+            (change)="guardarImagen()" />
+        </div>
+        <div class="col-6 botones mt-3" id="bot">
+          <input type="button" name="crearCuenta" id="crearCuenta" value="Crear" [disabled]="loginForm.invalid"
+            class="btn btn-primary boton shadow encima" (click)="registrarUsuario()">
+        </div>
+      </div>
+      <div class="row">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+      </div>
+
+    </form>
+  </div>
+</div>

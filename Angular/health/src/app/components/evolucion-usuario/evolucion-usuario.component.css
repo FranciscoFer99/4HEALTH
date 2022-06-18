@@ -1,0 +1,38 @@
+.cuadro{
+  background:  linear-gradient(#45e274, #1cb5e0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  width: 100vh;
+  border-radius: 15px;
+  border: black 2px solid;
+  padding: 11px;
+
+}
+.centrarCuadro{
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.iconitoEliminar:hover{
+  color: red;
+  cursor: pointer;
+}
+.letraSiguiente{
+  color: black;
+}
+
+.sennalado:hover {
+  background-color: #6ebff5b2;
+}
+.imagen{
+  /* position: fixed;
+  z-index: 7; */
+  width: 800px;
+  height: 350px;
+  border-radius: 55px;
+  margin-left: 75px;
+  /* border: solid black 2px; */
+}

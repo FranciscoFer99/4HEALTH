@@ -1,0 +1,74 @@
+.load__none {
+  display: none;
+}
+
+.load__animation{
+  border: 15px solid linear-gradient(#000046, #1cb5e0);
+  border-top-color: #2dd6fc;
+  border-top-style: groove;
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  -webkit-animation: turn 1.5s linear infinite;
+  -o-animation: turn 1.5s linear infinite;
+  animation: turn 1.5s linear infinite;
+}
+
+.load {
+  position: fixed;
+  background: linear-gradient(#4545e2, #1cb5e0);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.load__container {
+  position: relative;
+}
+
+.load__mask {
+  position: absolute;
+  /* background:; */
+  width: 100%;
+  height: 100%;
+  animation-name: loadPage;
+  animation-duration: 1200ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(.39,.58,.57,1);
+
+}
+
+@keyframes turn {
+  from {transform: rotate(0deg)}
+  to {transform: rotate(360deg)}
+}
+
+.load__title {
+  font-size: 3rem;
+  font-weight: bolder;
+  /* color: #2dd6fc; */
+}
+
+
+@keyframes loadPage {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+  100% {
+    opacity: 1;
+  }
+
+}

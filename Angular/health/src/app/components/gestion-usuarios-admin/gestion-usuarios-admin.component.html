@@ -1,0 +1,66 @@
+<app-load-page *ngIf="cargando == false"></app-load-page>
+<div class="alert alert-info alert-dismissible fade show" role="alert" *ngIf="eliminado == 'si'">
+  <strong>Usuario eliminado correctamente!</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="eliminado == 'no'">
+  <strong>No se ha podido eliminar el usuario!</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<div class="centrarCuadro" *ngIf="cargando == true">
+  <div class="cuadro">
+
+    <form [formGroup]="loginForm">
+      <div class="row titulo ">
+        <div class="col-6">
+          <h1>Gestión Usuarios</h1>
+        </div>
+        <div class="col-3">
+          <input type="text" id="nombre" name="nombre" formControlName="nombre"
+                class="form-control boton shadow" (keyup)="cargarAsincUsuarios()" placeholder="Usuario...">
+        </div>
+        <div class="col-3 d-flex justify-content-center">
+          <div class="input-wrapper">
+            <i class="bi bi-person-plus-fill icono"></i>
+            <input type="button" name="agregar" id="agregar" value="Agregar" class="btn btn-primary boton shadow-lg" [routerLink]="['/registroUsuarioAdmin']">
+          </div>
+        </div>
+      </div>
+      <div class="d-flex row text-center">
+        <table class="table talbe-stripped tabla">
+          <thead>
+            <tr>
+              <!-- <th scope="col"><input type="checkbox"></th> -->
+              <th scope="col">Imagen</th>
+              <th scope="col">Usuario</th>
+              <th scope="col">Email</th>
+              <th scope="col">Tipo</th>
+              <th scope="col">Opciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let usuario of litstaUsuarios | paginate: { itemsPerPage: 6, currentPage: page }">
+              <!-- <td><input type="checkbox"  class="check"></td> -->
+              <td><img src="data:image/png;base64,{{usuario.foto}}" class="rounded-circle foto"></td>
+              <!-- <td> <img src="data:image/png;base64,{{usuario.foto}}" class="foto"></td> -->
+              <td>{{usuario.nombreUsu}}</td>
+              <td>{{usuario.email}}</td>
+              <td>{{usuario.idTipousuario.tipo}}</td>
+              <td><i class="bi bi-vector-pen mx-2" (click)="editarUser(usuario.id)"></i><i class="bi bi-trash-fill" (click)="eliminarUser(usuario.id)"></i></td>
+            </tr>
+          </tbody>
+        </table>
+        <pagination-controls (pageChange)="page = $event" previousLabel="Anterior"
+        nextLabel="Siguiente"></pagination-controls>
+        <!-- <div class="row d-flex justify-content-start">
+          <div class="col-3">
+            <div class="input-wrapper">
+              <i class="bi bi-trash-fill icono"></i>
+              <input type="button" name="eliminar" id="eliminar" value="Eliminar" class="btn btn-primary boton shadow-lg">
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </form>
+  </div>
+</div>

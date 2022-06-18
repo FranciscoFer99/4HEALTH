@@ -1,0 +1,82 @@
+.cuadro{
+  background:  linear-gradient(#45e274, #1cb5e0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 80vh;
+  border-radius: 15px;
+  border: black 2px solid;
+
+}
+.centrarCuadro{
+  display: flex;
+  justify-content: center;
+  margin-top: 7vh;
+}
+.email{
+  font-weight: bold;
+}
+.pass{
+  margin-top: 10px;
+  font-weight: bold;
+}
+.botones{
+  display: flex;
+  justify-content: center;
+
+}
+.boton{
+  width: 19vh;
+  /* margin-left: 5vh; */
+  margin-top: 2vh;
+  background-color: #6ebff5;
+  color: black;
+  border-color: black;
+  border-radius: 15px;
+}
+.enlaces{
+  margin-top: 10px;
+  text-decoration: none;
+}
+.text-decoration{
+  text-decoration: none;
+}
+.redondearBordes{
+  border-radius: 15px;
+}
+
+.foto{
+  height: 90px;
+  width: 100px;
+  /* border-radius: 100%; */
+
+}
+.margen{
+  margin-top: -10%;
+  margin-bottom: 4%;
+}
+.formulario{
+  width: 500px;
+}
+
+
+.fila1{
+  height: 85px;
+}
+
+
+.foto:hover{
+  /* height: 150px;
+  width: 150px; */
+  transition: transform .5s ease;
+  transform: scale(1.1);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+
+.encima:hover{
+  filter: contrast(180%);
+  cursor: pointer;
+}

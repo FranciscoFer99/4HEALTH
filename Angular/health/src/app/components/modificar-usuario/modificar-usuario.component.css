@@ -1,0 +1,68 @@
+.cuadro{
+  background:  linear-gradient(#45e274, #1cb5e0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  width: 80vh;
+  border-radius: 15px;
+  border: black 2px solid;
+  margin-bottom: 5vh;
+
+}
+.centrarCuadro{
+  display: flex;
+  justify-content: center;
+  margin-top: 5vh;
+}
+.email{
+  font-weight: bold;
+}
+.pass{
+  margin-top: 10px;
+  font-weight: bold;
+}
+.botones{
+  display: flex;
+  justify-content: center;
+
+}
+.boton{
+  width: 15vh;
+  margin-left: 5vh;
+  margin-top: 2vh;
+  background-color: #6ebff5;
+  color: black;
+  border-color: black;
+  border-radius: 15px;
+}
+.enlaces{
+  margin-top: 10px;
+  text-decoration: none;
+}
+.text-decoration{
+  text-decoration: none;
+}
+.redondearBordes{
+  border-radius: 15px;
+}
+
+.foto{
+  height: 150px;
+  width: 150px;
+  position: absolute;
+  border-radius: 15%;
+
+}
+.foto:hover{
+  /* height: 150px;
+  width: 150px; */
+  transition: transform .5s ease;
+  transform: scale(1.1);
+  overflow: hidden;
+  cursor: pointer;
+}
+.encima:hover{
+  filter: contrast(180%);
+  cursor: pointer;
+}

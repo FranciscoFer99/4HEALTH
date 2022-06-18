@@ -1,0 +1,62 @@
+<app-load-page *ngIf="cargando == false"></app-load-page>
+<div class="centrarCuadro">
+  <div class="cuadro">
+    <form action="">
+      <div class="row margen">
+        <h1 class="text-center">Datos Usuario</h1>
+      </div>
+
+      <div class="row d-flex justify-content-center mb-3 ">
+        <img src="data:image/png;base64,{{usuarioLog.foto}}" class="rounded-circle foto">
+      </div>
+
+      <!-- Nombre, Apellido -->
+      <div class="row">
+        <div class="col-6 form-group email">
+          <label for="nombreUsuario">Nombre Usuario</label>
+          <input type="text" id="nombreUsuario" name="nombreUsuario" value="{{usuarioLog.nombreUsu}}" readonly
+            class="form-control redondearBordes shadow">
+        </div>
+        <div class="col-6 form-group email">
+          <label for="email">Correo Electronico</label>
+          <input type="text" id="email" name="email"  class="form-control redondearBordes shadow" value="{{usuarioLog.email}}" readonly>
+        </div>
+      </div>
+
+      <!-- Telefono, Direccion -->
+      <div class="row my-2">
+        <div class="col-6 form-group email">
+          <label for="telefono">Teléfono</label>
+          <input type="text" id="telefono" name="telefono"  class="form-control redondearBordes shadow" value="{{usuarioLog.telefono}}" readonly>
+        </div>
+        <div class="col-6 form-group email">
+          <label for="direccion">Direccion</label>
+          <input type="text" id="direccion" name="direccion"  class="form-control redondearBordes shadow" value="{{usuarioLog.direccion}}" readonly>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6 botones">
+          <input type="submit" name="evolucion" id="evolucion" value="Evolución" [routerLink]="['/evolucion']"
+            class="btn btn-primary boton shadow botonesDelUsuario">
+        </div>
+        <div class="col-6 botones">
+          <input type="submit" name="pagar" id="pagar" value="Clases" class="btn btn-primary boton shadow botonesDelUsuario " [routerLink]="['/principalUsuario']">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6 botones">
+          <input type="button" name="editarDatos" id="editarDatos" value="Editar Datos" class="btn btn-primary boton shadow botonesDelUsuario" (click)="editarUser(usuarioLog.id)">
+        </div>
+        <div class="col-6 botones">
+          <input type="submit" name="cambiarContrasenna" id="cambiarContrasenna" value="Cambiar Contraseña"  [routerLink]="['/cambiarContrasenna']"
+            class="btn btn-primary boton shadow botonesDelUsuario">
+        </div>
+      </div>
+
+
+
+
+    </form>
+  </div>
+</div>
